@@ -33,8 +33,14 @@
 	box-shadow: inset 2px 2px rgba(0,0,0,0.2);
 }
 
+h3 {
+	position: relative;
+	text-align: center;
+	padding-top:60px;
+
+}
+
 .guessingbox {
-	border: 1px solid black;
 	margin: 0px auto;
 	padding:20px;
 	width:280px;
@@ -43,6 +49,9 @@
 #guessinginput {
 	height:30px;
 	text-align:center;
+	font-size:12px;
+	border: 1px dotted black;
+	background-color: #d9d9d9;
 }
 
 #submit {
@@ -53,7 +62,6 @@
 }
 
 .buttons {
-	border: 1px solid black;
 	padding:10px;
 	width:150px;
 	margin:auto;
@@ -72,8 +80,37 @@
 	float:right;
 
 }
+#hintbox {
+	text-align: center;
+	margin: auto;
+}
 
+h4 {
+	margin: 0px;
+	color: #d9d9d9;
+	text-shadow:1px 1px 1px #4d4d4d;
+}
 
+h6 {
+	text-align:center;
+	margin: 0px;
+}
+
+#gameover{
+	background-color:rgba(0,0,0,0.7);
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	text-align:center;
+}
+
+.message{
+	height:200px;
+	width:auto;
+	margin-top:200px;
+}
 
 
 

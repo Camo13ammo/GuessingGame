@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="icon" type="image/x-icon" href="QM.ico">
+		<title>Guessing Game</title>
+		<link rel="stylesheet" type="text/css" href="GGCSS.css"/>
+	</head>
+
+	<body>
+		<div id="guessinggame">
+			<div class="title">Vincent's Guessing Game</div>
+			<div class = "screen">
+				<h3>Welcome to "Vincent's Guessing Game". You'll have 5 tries to guess a number between 1 and 100.</h3>
+				<h6></h6>
+			</div>
+			<div class = "guessingbox">
+				<input id = "guessinginput" type = "text" placeholder="Input A Number 1-100"/>
+				<button id='submit' type='button' onclick = "playersGuessSubmission()">Submit Guess!</button>
+			</div>
+			<div class = "buttons">
+				<button type ="button" id="hint" onclick="provideHint()">Hint</button>
+				<button type ="button" id="reset" onclick="playAgain()">Reset</button>
+			</div>
+			<div id ="hintbox">
+				<h4 id="hintView"></h4>
+				<h4 id ="hints"></h4>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" src="guessingGame.js"></script>
+	</body>
+</html>
