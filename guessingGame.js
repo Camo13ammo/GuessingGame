@@ -1,10 +1,25 @@
+//Vincent Leombruno
+//12-7-15
+//Foundations Week 2
+//GuessingGame
+
+/*
+	If I had more time available, I would've liked to have made the 'hint' button 
+	only generate numbers that were accurate to the feedback given. When the player knows they
+	are within 10 digits but one of the guesses is 60 digits away, it's a giveaway.
+*/
+
 /* **** Global Variables **** */
 // try to elminate these global variables in your project, these are here just to start.
 
-var playersGuess;
-var winningNumber = $(generateWinningNumber())[0];
-var guesses = [];
-var gameStatus = true;
+function game(){
+	this.playersGuess;
+	this.winningNumber = $(generateWinningNumber())[0];
+	this.guesses = [];
+	this.gameStatus = true;
+	return;
+}
+$(game());
 
 /* **** Guessing Game Functions **** */
 
@@ -15,6 +30,7 @@ function generateWinningNumber(){
 }
 
 // Fetch the Players Guess
+// Modifies the DOM to update the player on their guess and clears the hints
 
 function playersGuessSubmission(){
 	playersGuess = Number($('#guessinginput').val());
@@ -26,6 +42,7 @@ function playersGuessSubmission(){
 }
 
 // Determine if the next guess should be a lower or higher number
+// Lets the player know how close they are to the winning number
 
 function lowerOrHigher(){
 	var guessDiff = playersGuess - winningNumber;
@@ -52,6 +69,13 @@ function lowerOrHigher(){
 }
 
 // Check if the Player's Guess is the winning number 
+// allows for no more than 5 guesses
+// prevents all non-whole numbers from being entered
+// prevents repeat guesses and will not dock the player an attempt if it is a repeat
+/* 
+	Game status flips to false when the game is over to prevent any additional clicks, 
+	guesses and requires the player to reset the game
+*/
 
 function checkGuess(){
 	$('h6').text("");
@@ -83,6 +107,8 @@ function checkGuess(){
 }
 
 // Create a provide hint button that provides additional clues to the "Player"
+// controls how many hints are provided based on how many guesses remain.
+// prevents the random hint numbers from duplicating or matching the winning number.
 
 function provideHint(){
 	var hintsStr = "";
@@ -104,6 +130,7 @@ function provideHint(){
 }
 
 // Allow the "Player" to Play Again
+// resets to the original parameters, generates a new random number and turns the game status back true
 
 function playAgain(){
 	gameStatus = true;
@@ -114,12 +141,16 @@ function playAgain(){
 	$('h6').text("");
 }
 
+// The function that the winning/losing overlay uses to dismiss itself when clicked.
+
 function hide(){
 	$('#gameover').remove();
 }
 
 
 /* **** Event Listeners/Handlers ****  */
+// submissions can be accepted by pressing the 'enter' key
+
 $('#guessinginput').keypress(function(event){
 	if(event.keyCode == 13){
 		playersGuessSubmission();
